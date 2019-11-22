@@ -7,20 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" type="text/css" href="../../site.css">
+  <link rel="stylesheet" type="text/css" href="/css/site.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="../../site.js"></script>
+  <script src="/js/site.js"></script>
    
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
 
-  <nav class="navbar navbar-expand-md navbar-default fixed-top justify-content-between">
+  <nav class="navbar navbar-expand-md navbar-default fixed-top ">
     
     <a class="navbar-brand" href="#">
-      <img src="../../public/images/canadian-maple.png" alt="Logo" style="width:40px;">
+      <img src="/images/canadian-maple.png" alt="Logo" style="width:40px;">
       Demo
     </a>
     
@@ -32,23 +32,25 @@
     <div class="collapse navbar-collapse " id="collapsibleNavbar">
       <ul class="navbar-nav  ml-auto nav-fill">
         <li class="nav-item">
-          <a class="nav-link" href="#about">ABOUT</a>
+          {{#navLink "/"}}Home{{/navLink}}
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#services">SERVICES</a>
+          {{#navLink "/images/add"}}Add Image{{/navLink}}
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#portfolio">PORTFOLIO</a>
+          <a class="nav-link" href="#portfolio">Sign In</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contact">CONTACT</a>
+          <a class="nav-link" href="#contact">Sign up</a>
         </li>
       </ul>
     </div>
   </nav>
   <br>
 
-
+            {{#navLink "/about"}}About{{/navLink}}
+            {{#navLink "/employees/add"}}Add Employee{{/navLink}}
+            
     
 
 
@@ -68,13 +70,13 @@
     <!-- The slideshow -->
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="../../public/images/torontoskyline.jpg" alt="Toronto street" width="1100" height="500">
+        <img src="/images/torontoskyline.jpg" alt="Toronto street" width="1100" height="500">
       </div>
       <div class="carousel-item">
-        <img src="../../public/images/cntower.jpg" alt="Toronto" width="1100" height="500">
+        <img src="/images/cntower.jpg" alt="Toronto" width="1100" height="500">
       </div>
       <div class="carousel-item">
-        <img src="../../public/images/torontoskyline.jpg" alt="toronto skyline" width="1100" height="500">
+        <img src="/images/torontoskyline.jpg" alt="toronto skyline" width="1100" height="500">
       </div>
     </div>
     
@@ -87,8 +89,8 @@
     </a>
   
   </div>
-  <h1>Frank Xiao</h1> 
-  <p>Specialize in Angular, SQL, Java</p> 
+  <h1>Website for upload image</h1> 
+  <p>This is a demo</p> 
   <form>
     <div class="input-group">
       <input type="email" class="form-control" size="50" placeholder="Email Address" required>

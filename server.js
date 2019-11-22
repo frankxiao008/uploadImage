@@ -13,7 +13,7 @@ const app = express();
 
 
 
-app.use(express.static('public/views'));
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(function(req,res,next){     
     let route = req.baseUrl + req.path;     
@@ -26,8 +26,8 @@ app.engine('.hbs', exphbs({
     defaultLayout: "main",
     helpers:{
         navLink: function(url, options){     return '<li' +          
-            ((url == app.locals.activeRoute) ? ' class="active" ' : '') +  
-            '><a href="' + url + '">' + options.fn(this) + '</a></li>'; } ,
+            ((url == app.locals.activeRoute) ? ' class="active nav-item"' : 'class="nav-item"') +  
+            '><a class="nav-link" href="' + url + '">' + options.fn(this) + '</a></li>'; } ,
         
             equal:(lvalue, rvalue, options)=>{
             if(arguments.length <3)
