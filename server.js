@@ -26,7 +26,7 @@ app.engine('.hbs', exphbs({
     defaultLayout: "main",
     helpers:{
         navLink: function(url, options){     return '<li' +          
-            ((url == app.locals.activeRoute) ? ' class="active nav-item"' : 'class="nav-item"') +  
+            ((url == app.locals.activeRoute) ? ' class="active nav-item"' : ' class="nav-item"') +  
             '><a class="nav-link" href="' + url + '">' + options.fn(this) + '</a></li>'; } ,
         
             equal:(lvalue, rvalue, options)=>{
@@ -38,12 +38,14 @@ app.engine('.hbs', exphbs({
                 return options.fn(this);
             }
         }
+
+       
     }
 }));
 app.set("view engine", ".hbs");
 
 app.get("/", function(req, res){
-    console.log("home is called")
+   
     res.render("home");
 });
 
@@ -51,6 +53,10 @@ app.get("/", function(req, res){
 app.get("/images/add", function(req, res){
     res.render("addImage");
                
+});
+
+app.get("/signup", function(req, res){
+    res.render("signup");             
 });
 
 const storage = multer.diskStorage({

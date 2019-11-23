@@ -24,20 +24,14 @@
       <span class="navbar-toggler-icon"></span>
     </button>  
     <!-- Navbar links -->
-    <div class="collapse navbar-collapse " id="collapsibleNavbar">
-      <ul class="navbar-nav  ml-auto nav-fill">
-        <li class="nav-item">
-          {{#navLink "/"}} Home {{/navLink}}
-        </li>
-        <li class="nav-item">
-          {{#navLink "/images/add"}} Add Image {{/navLink}}
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#portfolio">Sign In</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact">Sign up</a>
-        </li>
+    <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+      <ul class="navbar-nav ">
+        {{!-- ml-auto nav-fill --}}
+          {{#navLink "/"}}Home{{/navLink}}
+          {{#navLink "/images/add"}}Add Image{{/navLink}}
+          {{#navLink "/signin"}}Sign In{{/navLink}}
+          {{#navLink "/signup"}}Sign up{{/navLink}}
+
       </ul>
     </div>
   </nav>
