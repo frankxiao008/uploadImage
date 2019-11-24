@@ -24,13 +24,16 @@
       <span class="navbar-toggler-icon"></span>
     </button>  
     <!-- Navbar links -->
-    <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
-      <ul class="navbar-nav ">
+    <div class="collapse navbar-collapse " id="collapsibleNavbar">
+      <ul class="navbar-nav mr-auto ">
         {{!-- ml-auto nav-fill --}}
           {{#navLink "/"}}Home{{/navLink}}
-      </ul>
+    
        {{#if session.user }}
-        <form class="navbar-form navbar-right">
+          {{#navLink "/images/add"}}Add Image{{/navLink}}
+          {{#navLink "/images"}}Images{{/navLink}}
+      </ul>
+        <form class="form-inline my-2 my-lg-0"></form>
           <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" id="userMenu" data-toggle="dropdown">
               <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;{{session.user.userName}}&nbsp;&nbsp;<span
@@ -41,23 +44,18 @@
             </ul>
           </div>
         </form>
-        <ul class="nav navbar-nav navbar-right">
-          {{#navLink "/images/add"}}Add Image{{/navLink}}
-          {{#navLink "/images"}}Images{{/navLink}}
-        </ul>
+          
         {{else}}
-            <form class="navbar-form navbar-right">
-              <a href="/register" class="btn btn-success"><span
+          </ul>
+            <form class="form-inline my-2 my-lg-0"></form>
+              <a href="/register" class="btn btn-primary my-2 my-sm-0"><span
                   class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;Register</a>
-              <a href="/login" class="btn btn-primary"><span
+              <a href="/login" class="btn btn-success my-2 my-sm-0"><span
                   class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Log In</a>
-            </form>
-        {{/if}}
+            </form>          
+        {{/if}} 
     </div>
   </nav>
-
-
-
 
 <div class="jumbotron text-center">
   

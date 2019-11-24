@@ -88,6 +88,7 @@ app.get("/login", function(req,res){
 });
 
 app.get("/register", function(req, res){
+    console.log("call the register");
     res.render("register");
 });
 
