@@ -1,12 +1,18 @@
-<div class="row">
-    <div class="col-md-12">
 
-        <h2>Register</h2>
-        <hr/>
-{{#if errorMessage }}<div class="alert alert-danger"><strong>Error:</strong>{{errorMessage}}</div>{{/if}}
-        
+<h2>Register</h2>
+<hr/>
+<div class="row">
+<div class="col-md-12">
+
 {{#unless successMessage }}
-        <form action="/register" method="post">
+
+        
+
+
+        {{#if errorMessage }}<div class="alert alert-danger"><strong>Error:</strong>{{errorMessage}}</div>{{/if}}
+        
+
+        <form action="/register" method="POST">
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
@@ -37,11 +43,11 @@
             </div>
             <input class="btn btn-success pull-right" type="submit" value="Register" />
         </form>
-        {{else}}
+{{/unless}}
+
+        {{#if successMessage}}
             <div class= "alert alert-success"><strong>Success: </strong>{{successMessage}}</div>
             <a class="btn btn-success pull-right" href="/login">&nbsp;&nbsp;&nbsp;Proceed to Log in&nbsp;&nbsp;&nbsp;</a><br /><br /><br />
-        {{/unless}}
-
-
+        {{/if}}
     </div>
 </div>
