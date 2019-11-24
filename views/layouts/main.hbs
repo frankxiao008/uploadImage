@@ -28,14 +28,35 @@
       <ul class="navbar-nav ">
         {{!-- ml-auto nav-fill --}}
           {{#navLink "/"}}Home{{/navLink}}
-          {{#navLink "/images/add"}}Add Image{{/navLink}}
-          {{#navLink "/signin"}}Sign In{{/navLink}}
-          {{#navLink "/signup"}}Sign up{{/navLink}}
-
       </ul>
+       {{#if session.user }}
+        <form class="navbar-form navbar-right">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="userMenu" data-toggle="dropdown">
+              <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;{{session.user.userName}}&nbsp;&nbsp;<span
+                class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="userMenu">
+              <li><a href="/logout">Log Out</a></li>
+            </ul>
+          </div>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          {{#navLink "/images/add"}}Add Image{{/navLink}}
+          {{#navLink "/images"}}Images{{/navLink}}
+        </ul>
+        {{else}}
+            <form class="navbar-form navbar-right">
+              <a href="/register" class="btn btn-success"><span
+                  class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;Register</a>
+              <a href="/login" class="btn btn-primary"><span
+                  class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Log In</a>
+            </form>
+        {{/if}}
     </div>
   </nav>
-  <br>
+
+
 
 
 <div class="jumbotron text-center">
@@ -73,14 +94,6 @@
   </div>
   <h1>Website for upload image</h1> 
   <p>This is a demo</p> 
-  <form>
-    <div class="input-group">
-      <input type="email" class="form-control" size="50" placeholder="Email Address" required>
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-danger">Subscribe</button>
-      </div>
-    </div>
-  </form>
 </div>
 
 <div class="container">

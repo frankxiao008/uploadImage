@@ -59,6 +59,8 @@ app.get("/signup", function(req, res){
     res.render("signup");             
 });
 
+
+
 const storage = multer.diskStorage({
     destination: "./public/images/uploaded",
     filename: function(req, file, cb){
@@ -78,10 +80,55 @@ app.get("/images",  function(req, res){
 
 });
 
+
+
+
+app.get("/login", function(req,res){
+    res.render("login");
+});
+
+app.get("/register", function(req, res){
+    res.render("register");
+});
+
+
+app.post("/register", function(req, res){
+    dataServiceAuth.registerUser(req.body)
+        .then(()=>{
+            res.render("register", {successMessage: "User created"});
+        }).catch((err)=>{
+            res.render("register", { errorMessage: err, userName: req.body.userName  });
+        });
+});
+
+app.post("/login", (req, res) => {
+
+    req.body.userAgent = req.get('User-Agent');
+  
+    dataServiceAuth.checkUser(req.body).then((user) => {
+
+    req.session.user = {
+        userName: user.userName,
+        email: user.email,
+        loginHistory: user.loginHistory
+    }
+
+        res.redirect('/employees');
+    }).catch((err) => {
+      res.render("login", {errorMessage: err, userName: req.body.userName});
+    });
+  });
+  
+
+
+app.get("/logout", function(req, res){
+    req.session.reset();
+    res.redirect("/");
+});
+
 app.use(function(req, res){
     res.status(404).send("PAGE NOT FOUND!!!!!!!!!!!");
 });
-
 
 
 app.listen(HTTP_PORT, () => console.log(`app listening on port ${HTTP_PORT}!`));
